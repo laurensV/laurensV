@@ -8,5 +8,5 @@ I'm a full-stack web developer with a background in Computer Science and love fo
 Co-Founded the technology startup Effect.AI, where we are building the future of work. We are providing work for thousands of people all over the globe by creating a micro-tasking platform to structure data on the blockchain, powered by the digital token EFX.
  
 <p align="center">
-    <img src="https://github-readme-stats.vercel.app/api?username=laurensV&theme=dark&show_icons=true" />
+    <img src="https://github-readme-stats.vercel.app/api?username=laurensV&count_private=true&show_icons=true" />
 </p>
