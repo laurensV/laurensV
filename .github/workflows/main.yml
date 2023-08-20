@@ -29,15 +29,21 @@ jobs:
         with:
           path: './repo/'
       
-      - uses: Platane/snk@master
+      - uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           svg_out_path: ./repo/resources/github-snake.svg
-      
+          outputs: |
+            ./repo/resources/github-snake.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Check for modified files
         id: git-check
         run: date; cd ./repo; echo ::set-output name=modified::$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)
-  
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Update changes in GitHub repository
         if: steps.git-check.outputs.modified == 'true'
         run:  |
@@ -47,3 +53,5 @@ jobs:
           git add -A
           git commit -m '[Automated Commit by GH Actions]'
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
